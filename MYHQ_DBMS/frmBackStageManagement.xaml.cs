@@ -1,4 +1,5 @@
 ﻿
+using MaterialDesignThemes.Wpf;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 
-namespace XAIS.Branchs.XICT2DW.Login
+namespace MYHQ_DBMS
 {
     /// <summary>
     /// frmTracksControl.xaml 的交互逻辑
@@ -102,10 +103,10 @@ namespace XAIS.Branchs.XICT2DW.Login
         {
 
         }
-
+        List<Test1> t1;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Test1> t1 = new List<Test1>() 
+            t1 = new List<Test1>() 
             {
                 new Test1(){ V1 = "张三", V2 = DateTime.Now.ToString(), V3 = "删除了一个表格"},
                 new Test1(){ V1 = "张三", V2 = DateTime.Now.ToString(), V3 = "删除了一个表格"},
@@ -139,7 +140,7 @@ namespace XAIS.Branchs.XICT2DW.Login
                 new Test3(){ V1 = "数据库一"},
             };
 
-            this.DutyManagement.ItemsSource = t1;
+
             this.UserManagement.ItemsSource = t2;
             this.DataBaseManagement.ItemsSource = t3;
 
@@ -153,6 +154,8 @@ namespace XAIS.Branchs.XICT2DW.Login
 
             StartTime.SelectedTime = DateTime.Now;
             EndTime.SelectedTime = DateTime.Now;
+
+            this.DataContext = new DialogsViewModel();
         }
         private void BTSelect_Click(object sender, EventArgs e)
         {
@@ -186,7 +189,7 @@ namespace XAIS.Branchs.XICT2DW.Login
             frm.ShowDialog();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             if (StartTime.SelectedTime != null && EndTime.SelectedTime != null && StartDate.SelectedDate != null && EndDate.SelectedDate != null)
             {
@@ -206,6 +209,15 @@ namespace XAIS.Branchs.XICT2DW.Login
                     }
 
                     ///do some thing
+                    var view = new WitingDialog
+                    {
+                    };
+
+                    //show the dialog
+                    var result = await DialogHost.Show(view, "RootDialog", Search_DialogHost_OnDialogOpening, Search_DialogHost_OnDialogClosing);
+
+                    //check the result...
+                    Console.WriteLine("Dialog was closed, the CommandParameter used to close it was: " + (result ?? "NULL"));
                 }
                 else
                 {
@@ -231,6 +243,28 @@ namespace XAIS.Branchs.XICT2DW.Login
                     MainSnackbar.MessageQueue.Enqueue("请先输入时间范围");
                 }, TaskScheduler.FromCurrentSynchronizationContext());
             }
+        }
+
+        #region Dialog event
+        private void Search_DialogHost_OnDialogOpening(object sender, DialogOpenedEventArgs eventArgs)
+        {
+            this.DutyManagement.ItemsSource = null;
+            //lets run a fake operation for 3 seconds then close this baby.
+            Task.Delay(TimeSpan.FromSeconds(3))
+                .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
+                    TaskScheduler.FromCurrentSynchronizationContext());
+             
+        }
+        private void Search_DialogHost_OnDialogClosing(object sender, DialogClosingEventArgs eventArgs)
+        {
+            this.DutyManagement.ItemsSource = t1;
+            Console.WriteLine("Closing dialog with parameter: " + (eventArgs.Parameter ?? ""));
+        }
+        #endregion
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

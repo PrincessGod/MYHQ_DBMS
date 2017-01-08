@@ -20,3 +20,9 @@ C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\frmBackStageManage
 C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\frmBackStageManagement.g.cs
 C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\frmAddUser.baml
 C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\frmAddUser.g.cs
+C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\MemberEditDialog.baml
+C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\MemberEditDialog.g.cs
+C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\WitingDialog.baml
+C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\WitingDialog.g.cs
+C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\SimpleMessageDialog.baml
+C:\Users\jihon\Documents\GitHub\MYHQ_DBMS\MYHQ_DBMS\obj\Debug\SimpleMessageDialog.g.cs

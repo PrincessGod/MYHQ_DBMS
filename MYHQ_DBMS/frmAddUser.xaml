@@ -1,4 +1,4 @@
-﻿<Window x:Class="XAIS.Branchs.XICT2DW.Login.frmAddUser"
+﻿<Window x:Class="MYHQ_DBMS.frmAddUser"
        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Window1" Height="400" Width="330" WindowStyle="None" AllowsTransparency="True" ShowInTaskbar="False"
@@ -18,7 +18,7 @@
             <Border Margin="0"  BorderThickness="0 0 0 1" VerticalAlignment="Top" Opacity=".4" BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
             <Border Margin="0"  BorderThickness="0 0 1 0" HorizontalAlignment="Left" Opacity=".4" BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
             <Border Margin="0"  BorderThickness="1 0 0 0" HorizontalAlignment="Right" Opacity=".4" BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
-            <Grid  Margin="1" Background="#05FFFFFF">
+            <Grid  Margin="1" >
                 <materialDesign:ColorZone MouseMove="TitleBar_MouseMove" Background="Transparent" Padding="5,2,5,2" materialDesign:ShadowAssist.ShadowDepth="Depth0"
                                             Mode="Standard">
                     <DockPanel  >

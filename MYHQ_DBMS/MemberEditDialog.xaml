@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="MYHQ_DBMS.MemberEditDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300" 
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             
+             >
+
+    <Grid Margin="18">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
+            <ColumnDefinition Width="170" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Margin="0 0 0 10" Grid.ColumnSpan="2" Grid.Row="0" >
+            <!--<materialDesign:PackIcon Kind="Information" Margin="24 0 0 2" Width="20" Height="20" VerticalAlignment="Center" />-->
+            <TextBlock x:Name="Title" HorizontalAlignment="Left" Padding="0" VerticalAlignment="Center" Margin="0,0,0,0" Foreground="{DynamicResource PrimaryHueMidBrush}" FontSize="20" Grid.Row="1">添加用户</TextBlock>
+            <!--<Border Margin="-8,0,-8,1" BorderThickness="0 1 0 0" VerticalAlignment="Bottom" BorderBrush="{DynamicResource MaterialDesignDivider}" Grid.Row="1"/>-->
+        </Grid>
+
+
+        <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Margin="0 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">姓名：</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" Margin="0 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">部门：</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" Margin="0 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">职务：</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Bottom" Margin="0 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">用户名：</TextBlock>
+        <TextBlock x:Name="PassW" Grid.Column="0" Grid.Row="5" VerticalAlignment="Bottom" Margin="0 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">密码：</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" VerticalAlignment="Bottom" Margin="0 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">确认密码：</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="7" VerticalAlignment="Bottom" Margin="0 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">使用权限：</TextBlock>
+        <TextBox PreviewKeyDown="textBox_PreviewKeyDown" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Text="{Binding V1}"  HorizontalAlignment="Left" x:Name="Name"  Margin="4,0,0,5" Width="160" />
+        <TextBox PreviewKeyDown="textBox_PreviewKeyDown" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Text="{Binding V2}"  HorizontalAlignment="Left" x:Name="Department"  Margin="4,0,0,5" Width="160" />
+        <TextBox PreviewKeyDown="textBox_PreviewKeyDown" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Text="{Binding V3}"  HorizontalAlignment="Left" x:Name="Duty"  Margin="4,0,0,5" Width="160" />
+        <TextBox 
+            DataObject.Pasting="textBox_Pasting" PreviewKeyDown="textBox_PreviewKeyDown" InputMethod.IsInputMethodEnabled="False"
+            PreviewTextInput="textBox_PreviewTextInput"
+            Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" Text="{Binding V4}" HorizontalAlignment="Left" x:Name="UserName"  Margin="4,0,0,5" Width="160" />
+        <PasswordBox
+            DataObject.Pasting="textBox_Pasting" PreviewKeyDown="textBox_PreviewKeyDown" InputMethod.IsInputMethodEnabled="False"
+            PreviewTextInput="textBox_PreviewTextInput"
+            Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" x:Name="PassWord"  Margin="4,0,0,5" Width="160" LostKeyboardFocus="PassWord_LostKeyboardFocus" />
+        <PasswordBox
+            DataObject.Pasting="textBox_Pasting" PreviewKeyDown="textBox_PreviewKeyDown" InputMethod.IsInputMethodEnabled="False"
+            PreviewTextInput="textBox_PreviewTextInput"
+            Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom"  HorizontalAlignment="Left" x:Name="SurePs"  Margin="4,0,0,5" Width="160" LostKeyboardFocus ="SurePS_LostKeyboardFocus"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="4 0 0 8">
+            <RadioButton Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 0" VerticalAlignment="Bottom" IsChecked="True">
+                仅浏览
+            </RadioButton>
+            <RadioButton Style="{StaticResource MaterialDesignRadioButton}" Margin="20 0 8 0" VerticalAlignment="Bottom">
+                全操作
+            </RadioButton>
+        </StackPanel>
+        <StackPanel Margin=" 0 15 0 10" Grid.ColumnSpan="2" Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button  x:Name="butok"  HorizontalAlignment="Center" Width="90" Height="26" Click="Button_Click"
+                      Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0 0 40 0"
+                      Command="materialDesign:DialogHost.CloseDialogCommand">
+               
+                <StackPanel Margin="0 1 0 0" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Check" />
+                    <TextBlock FontFamily="微软雅黑 Light" Margin="0 -2 0 0"  FontSize="13">确定</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button HorizontalAlignment="Center" Width="90" Height="26" Style="{StaticResource MaterialDesignRaisedLightButton}" 
+                    Command="materialDesign:DialogHost.CloseDialogCommand" Margin="0" >
+                <Button.CommandParameter>
+                    <system:Boolean>False</system:Boolean>
+                </Button.CommandParameter>
+                <StackPanel Margin="0 1 0 0" Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Close" />
+                    <TextBlock FontFamily="微软雅黑 Light" Margin="0 -2 0 0"  FontSize="13">取消</TextBlock>
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+        <materialDesign:Snackbar HorizontalAlignment="Stretch" Grid.Row="9" Margin="0 0 0 -10"  Grid.ColumnSpan="2" MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar"/>
+    </Grid>
+</UserControl>

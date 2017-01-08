@@ -15,7 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace XAIS.Branchs.XICT2DW.Login
+namespace MYHQ_DBMS
 {
     /// <summary>
     /// frmSingelTargetPlaybacks.xaml 的交互逻辑
