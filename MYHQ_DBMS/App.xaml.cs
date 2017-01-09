@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MYHQ_DBMS.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,15 @@ namespace MYHQ_DBMS
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)  
+            {
+                var view = new frmUserLogin
+                {
+                    DataContext = new LoginViewModel()
+                };
+
+                view.Show();
+            }
+
     }
 }

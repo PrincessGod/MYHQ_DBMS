@@ -46,6 +46,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,6 +56,7 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -64,62 +66,62 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SimpleMessageDialog.xaml.cs">
+    <Compile Include="Model\DatabaseInfo.cs" />
+    <Compile Include="Model\LoginInfo.cs" />
+    <Compile Include="Model\OperationHistory.cs" />
+    <Compile Include="Model\UserInfo.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\PassWordBoxHelper.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\PermissionConverter.cs" />
+    <Compile Include="View\SimpleMessageDialog.xaml.cs">
       <DependentUpon>SimpleMessageDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WitingDialog.xaml.cs">
+    <Compile Include="View\WitingDialog.xaml.cs">
       <DependentUpon>WitingDialog.xaml</DependentUpon>
     </Compile>
-    <Page Include="frmAddUser.xaml">
+    <Page Include="View\frmAddUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="frmBackStageManagement.xaml">
+    <Page Include="View\frmBackStageManagement.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="frmUserLogin.xaml">
+    <Page Include="View\frmUserLogin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="AnotherCommandImplementation.cs" />
+    <Compile Include="Command\AnotherCommandImplementation.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DialogViewModel.cs" />
-    <Compile Include="frmAddUser.xaml.cs">
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="View\frmAddUser.xaml.cs">
       <DependentUpon>frmAddUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frmBackStageManagement.xaml.cs">
+    <Compile Include="View\frmBackStageManagement.xaml.cs">
       <DependentUpon>frmBackStageManagement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="frmUserLogin.xaml.cs">
+    <Compile Include="View\frmUserLogin.xaml.cs">
       <DependentUpon>frmUserLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="MemberEditDialog.xaml">
+    <Page Include="View\MemberEditDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SimpleMessageDialog.xaml">
+    <Page Include="View\SimpleMessageDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="WitingDialog.xaml">
+    <Page Include="View\WitingDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MemberEditDialog.xaml.cs">
+    <Compile Include="View\MemberEditDialog.xaml.cs">
       <DependentUpon>MemberEditDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -149,25 +151,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pics\dataBaseOperate.png">
+    <Resource Include="View\Pics\dataBaseOperate.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Pics\DutyManagement.png">
+    <Resource Include="View\Pics\DutyManagement.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Pics\interface.png">
+    <Resource Include="View\Pics\interface.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Pics\UserManagement.png">
+    <Resource Include="View\Pics\UserManagement.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Pics\删除.png" />
-    <Resource Include="Pics\备份.png" />
-    <Resource Include="Pics\恢复.png" />
-    <Resource Include="Pics\编辑.png" />
+    <Resource Include="View\Pics\删除.png" />
+    <Resource Include="View\Pics\备份.png" />
+    <Resource Include="View\Pics\恢复.png" />
+    <Resource Include="View\Pics\编辑.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pics\MYHQicon.png">
+    <Resource Include="View\Pics\MYHQicon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
@@ -176,6 +178,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
