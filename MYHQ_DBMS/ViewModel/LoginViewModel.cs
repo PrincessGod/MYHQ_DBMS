@@ -31,6 +31,7 @@ namespace MYHQ_DBMS.ViewModel
             {
                 if (loginInfo.UserName.Equals(value)) return;
                 loginInfo.UserName = value;
+                OnPropertyChanged("UserName");
             }
         }
 
@@ -79,7 +80,7 @@ namespace MYHQ_DBMS.ViewModel
         /// <param name="obj"></param>
         private void ExecuteRunLogin(object obj)
         {
-            if ((this.loginInfo.UserName != "PrincessGod" && this.loginInfo.PassWord != "123123"))
+            if ((this.loginInfo.UserName != "PrincessGod" || this.loginInfo.PassWord != "123123"))
             { 
                 this.ErrorMessage = "用户名不存在或密码错误";
                 return;
