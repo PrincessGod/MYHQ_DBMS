@@ -29,9 +29,9 @@
                             <Button Click="ExitButton_Click" HorizontalAlignment="Right" Padding="0" Height="20" Style="{StaticResource MaterialDesignFlatButton}">
                                 <materialDesign:PackIcon Kind="Close" Height="20" Width="20" />
                             </Button>
-                            <Button Click="btn_min_Click" DockPanel.Dock="Right" Padding="0" Height="20" Style="{StaticResource MaterialDesignFlatButton}">
+                            <!--<Button Click="btn_min_Click" DockPanel.Dock="Right" Padding="0" Height="20" Style="{StaticResource MaterialDesignFlatButton}">
                                 <materialDesign:PackIcon Kind="WindowMinimize" Height="20" Width="20" />
-                            </Button>
+                            </Button>-->
                         </StackPanel>
                         
                         <!--<Button Click="btn_max_Click" DockPanel.Dock="Right" Padding="10,0,10,0" Style="{StaticResource MaterialDesignFlatButton}">
@@ -54,7 +54,9 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <Image HorizontalAlignment="Right" Width="100" Height="100" Margin="0" Source="Pics/MYHQicon.png"></Image>
+                    <!--<Image HorizontalAlignment="Right" Width="100" Height="100" Margin="0" Source="Pics/MYHQicon.png"></Image>-->
+                    <Image HorizontalAlignment="Right" Width="100" Height="100" Margin="0" Source="Pics/Star.png"></Image>
+                    <!--<materialDesign:PackIcon HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryHueMidBrush}" Width="100" Height="100" VerticalAlignment="Center" Kind="Meteor" />-->
                     <StackPanel VerticalAlignment="Center" Grid.Column="1">
                         <TextBox Grid.Row="1" HorizontalAlignment="Left" Margin="10 0 0 10" FontSize="16" Width="160" 
                                  Text="{Binding UserName,Mode=TwoWay}"

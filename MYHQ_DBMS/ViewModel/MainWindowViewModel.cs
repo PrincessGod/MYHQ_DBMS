@@ -31,11 +31,11 @@ namespace MYHQ_DBMS.ViewModel
             this.operationsHistory = new ObservableCollection<OperationHistory>();
             this.databasesInfo = new ObservableCollection<DatabaseInfo>
             {
-                new DatabaseInfo{ Name = "服务器北京"},
-                new DatabaseInfo{ Name = "服务器武汉"},
-                new DatabaseInfo{ Name = "服务器上海"},
-                new DatabaseInfo{ Name = "服务器深圳"},
-                new DatabaseInfo{ Name = "服务器广州"},
+                new DatabaseInfo{ Name = "数据库北京"},
+                new DatabaseInfo{ Name = "数据库武汉"},
+                new DatabaseInfo{ Name = "数据库上海"},
+                new DatabaseInfo{ Name = "数据库深圳"},
+                new DatabaseInfo{ Name = "数据库广州"},
             };
         }
 

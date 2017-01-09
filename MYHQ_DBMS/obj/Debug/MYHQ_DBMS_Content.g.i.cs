@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("%e7%ae%a1%e7%90%86%e7%b3%bb%e7%bb%9ficon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("view/pics/star.png")]
 
 

@@ -33,7 +33,7 @@
                             <Button Click="btn_min_Click" DockPanel.Dock="Right" Padding="10,0,10,0" Style="{StaticResource MaterialDesignFlatButton}">
                                 <materialDesign:PackIcon Kind="WindowMinimize" Height="16" Width="24" />
                             </Button>
-                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Foreground="{StaticResource PrimaryHueMidBrush}">MYHQ数据服务系统——后台管理系统</TextBlock>
+                            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Foreground="{StaticResource PrimaryHueMidBrush}">MYHQ数据服务后台管理系统</TextBlock>
                         </DockPanel>
                     </materialDesign:ColorZone>
                     <Grid Margin="8 40 8 10">
@@ -57,19 +57,27 @@
                                                     <Grid Background="Transparent"  Cursor="Hand">
                                                         <Border x:Name="BorderT" Margin="0" BorderThickness="1" Visibility="Hidden" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
                                                         <TextBlock Name="MessageTime" Height="60" Width="80" Margin="0,0,0,0" TextAlignment="Center" ></TextBlock>
-                                                        <StackPanel Orientation="Vertical">
-                                                            <Image Height="40" Source="Pics/DutyManagement.png"></Image>
-                                                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">值班管理</TextBlock>
+                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                                            <!--<Image Height="40" Source="Pics/DutyManagement.png"></Image>-->
+                                                            <materialDesign:PackIcon Name="icoOperation" Width="50" Height="40" Kind="BookOpenPageVariant" />
+                                                            <TextBlock Margin="0,0,0,0" Name="textOperation" VerticalAlignment="Center" HorizontalAlignment="Center">值班管理</TextBlock>
                                                         </StackPanel>
                                                     </Grid>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger   Property="IsSelected" Value="True">
-                                                            <Setter TargetName="MessageTime" Property="Background" Value="#643975dd"></Setter>
-                                                            <Setter TargetName="MessageTime" Property="Opacity" Value=".4"></Setter>
+                                                            <!--<Setter TargetName="MessageTime" Property="Background" Value="#643975dd"></Setter>
+                                                            <Setter TargetName="MessageTime" Property="Opacity" Value=".4"></Setter>-->
+                                                            <Setter TargetName="icoOperation" Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"></Setter>
+                                                            <Setter TargetName="textOperation" Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"></Setter>
                                                         </Trigger>
-                                                        <Trigger   Property="IsMouseOver" Value="True">
+                                                        <MultiTrigger>
+                                                            <MultiTrigger.Conditions>
+                                                                <Condition Property="IsSelected" Value="False"></Condition>
+                                                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                                                            </MultiTrigger.Conditions>
                                                             <Setter TargetName="BorderT" Property="Visibility" Value="Visible"></Setter>
-                                                        </Trigger>
+                                                        </MultiTrigger>
+                                                        
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
                                             </Setter.Value>
@@ -144,20 +152,27 @@
                                                     <Grid Background="Transparent"  Cursor="Hand">
                                                         <Border x:Name="BorderT" Margin="0" BorderThickness="1" Visibility="Hidden" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
                                                         <TextBlock Name="ShipException" Height="60" Width="80" Margin="0,0,0,0" TextAlignment="Center" ></TextBlock>
-                                                        <StackPanel Orientation="Vertical">
-                                                            <Image Height="40" Source="Pics/UserManagement.png">
-                                                            </Image>
-                                                            <TextBlock Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">用户管理</TextBlock>
+                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                                            <!--<Image Height="40" Source="Pics/UserManagement.png">
+                                                            </Image>-->
+                                                            <materialDesign:PackIcon Name="icoUser" Width="50" Height="40" Kind="AccountCircle" />
+                                                            <TextBlock Margin="0,0,0,0" Name="textUser" VerticalAlignment="Center" HorizontalAlignment="Center">用户管理</TextBlock>
                                                         </StackPanel>
                                                     </Grid>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger   Property="IsSelected" Value="True">
-                                                            <Setter TargetName="ShipException" Property="Background" Value="#643975dd"></Setter>
-                                                            <Setter TargetName="ShipException" Property="Opacity" Value=".4"></Setter>
+                                                            <!--<Setter TargetName="ShipException" Property="Background" Value="#643975dd"></Setter>
+                                                            <Setter TargetName="ShipException" Property="Opacity" Value=".4"></Setter>-->
+                                                            <Setter TargetName="icoUser" Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"></Setter>
+                                                            <Setter TargetName="textUser" Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"></Setter>
                                                         </Trigger>
-                                                        <Trigger   Property="IsMouseOver" Value="True">
+                                                        <MultiTrigger>
+                                                            <MultiTrigger.Conditions>
+                                                                <Condition Property="IsSelected" Value="False"></Condition>
+                                                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                                                            </MultiTrigger.Conditions>
                                                             <Setter TargetName="BorderT" Property="Visibility" Value="Visible"></Setter>
-                                                        </Trigger>
+                                                        </MultiTrigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
                                             </Setter.Value>
@@ -235,20 +250,27 @@
                                                     <Grid Background="Transparent"  Cursor="Hand">
                                                         <Border x:Name="BorderT" Margin="0" BorderThickness="1" Visibility="Hidden" BorderBrush="{DynamicResource MaterialDesignDivider}"/>
                                                         <TextBlock Name="ShipNum" Height="60" Width="80" Margin="0,0,0,0" TextAlignment="Center" ></TextBlock>
-                                                        <StackPanel Orientation="Vertical">
-                                                            <Image Height="40" Source="Pics/dataBaseOperate.png">
-                                                            </Image>
-                                                            <TextBlock Margin="0,0,0,0"  VerticalAlignment="Center" HorizontalAlignment="Center">数据库操作</TextBlock>
+                                                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                                                            <!--<Image Height="40" Source="Pics/dataBaseOperate.png">
+                                                            </Image>-->
+                                                            <materialDesign:PackIcon Name="icoDatabase" Width="65" Height="40" Kind="Database" />
+                                                            <TextBlock Margin="0,0,0,0" Name="textDatabase"  VerticalAlignment="Center" HorizontalAlignment="Center">数据库操作</TextBlock>
                                                         </StackPanel>
                                                     </Grid>
                                                     <ControlTemplate.Triggers>
                                                         <Trigger   Property="IsSelected" Value="True">
-                                                            <Setter TargetName="ShipNum" Property="Background" Value="#643975dd"></Setter>
-                                                            <Setter TargetName="ShipNum" Property="Opacity" Value=".4"></Setter>
+                                                            <!--<Setter TargetName="ShipNum" Property="Background" Value="#643975dd"></Setter>
+                                                            <Setter TargetName="ShipNum" Property="Opacity" Value=".4"></Setter>-->
+                                                            <Setter TargetName="icoDatabase" Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"></Setter>
+                                                            <Setter TargetName="textDatabase" Property="Foreground" Value="{StaticResource PrimaryHueMidBrush}"></Setter>
                                                         </Trigger>
-                                                        <Trigger   Property="IsMouseOver" Value="True">
+                                                        <MultiTrigger>
+                                                            <MultiTrigger.Conditions>
+                                                                <Condition Property="IsSelected" Value="False"></Condition>
+                                                                <Condition Property="IsMouseOver" Value="True"></Condition>
+                                                            </MultiTrigger.Conditions>
                                                             <Setter TargetName="BorderT" Property="Visibility" Value="Visible"></Setter>
-                                                        </Trigger>
+                                                        </MultiTrigger>
                                                     </ControlTemplate.Triggers>
                                                 </ControlTemplate>
                                             </Setter.Value>
