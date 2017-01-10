@@ -1,15 +1,14 @@
 ﻿using MYHQ_DBMS.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MYHQ_DBMS.Model
 {
     public class OperationHistory : ViewModelBase
     {
         private string name;
+        private string operation;
+
+        private string operationTime;
+
         public string Name
         {
             get { return name; }
@@ -21,7 +20,6 @@ namespace MYHQ_DBMS.Model
             }
         }
 
-        private string operationTime;
         public string OperationTime
         {
             get { return operationTime; }
@@ -32,7 +30,7 @@ namespace MYHQ_DBMS.Model
                 OnPropertyChanged("OperationTime");
             }
         }
-        private string operation;
+
         public string Operation
         {
             get { return operation; }
@@ -43,6 +41,5 @@ namespace MYHQ_DBMS.Model
                 OnPropertyChanged("Operation");
             }
         }
-
     }
 }

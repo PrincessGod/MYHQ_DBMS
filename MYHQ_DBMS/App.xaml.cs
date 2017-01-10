@@ -1,28 +1,22 @@
-﻿using MYHQ_DBMS.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
+using MYHQ_DBMS.View;
+using MYHQ_DBMS.ViewModel;
 
 namespace MYHQ_DBMS
 {
     /// <summary>
-    /// App.xaml 的交互逻辑
+    ///     App.xaml 的交互逻辑
     /// </summary>
-    public partial class App : Application
+    public partial class App
     {
-        private void Application_Startup(object sender, StartupEventArgs e)  
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            var view = new FrmUserLogin
             {
-                var view = new frmUserLogin
-                {
-                    DataContext = new LoginViewModel()
-                };
+                DataContext = new LoginViewModel()
+            };
 
-                view.Show();
-            }
-
+            view.Show();
+        }
     }
 }

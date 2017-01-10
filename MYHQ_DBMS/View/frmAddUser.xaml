@@ -1,28 +1,35 @@
 ﻿<Window x:Class="MYHQ_DBMS.frmAddUser"
-       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Window1" Height="400" Width="330" WindowStyle="None" AllowsTransparency="True" ShowInTaskbar="False"
-        xmlns:system="clr-namespace:System;assembly=mscorlib"       
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
-        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
-        FontFamily="{DynamicResource MaterialDesignFont}" Closing="Window_Closing" >
-    
-    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+        FontFamily="{DynamicResource MaterialDesignFont}" Closing="Window_Closing">
+
+    <materialDesign:Card materialDesign:ShadowAssist.ShadowDepth="Depth5" VerticalAlignment="Stretch"
+                         HorizontalAlignment="Stretch">
         <Grid>
-            <Border Margin="0"  BorderThickness="0 1 0 0" VerticalAlignment="Bottom" Opacity=".4" BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
-            <Border Margin="0"  BorderThickness="0 0 0 1" VerticalAlignment="Top" Opacity=".4" BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
-            <Border Margin="0"  BorderThickness="0 0 1 0" HorizontalAlignment="Left" Opacity=".4" BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
-            <Border Margin="0"  BorderThickness="1 0 0 0" HorizontalAlignment="Right" Opacity=".4" BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
-            <Grid  Margin="1" >
-                <materialDesign:ColorZone MouseMove="TitleBar_MouseMove" Background="Transparent" Padding="5,2,5,2" materialDesign:ShadowAssist.ShadowDepth="Depth0"
-                                            Mode="Standard">
-                    <DockPanel  >
-                        <Button Click="ExitButton_Click" DockPanel.Dock="Right" Padding="10,0,10,0" Style="{StaticResource MaterialDesignFlatButton}" Loaded="Button_Loaded">
+            <Border Margin="0" BorderThickness="0 1 0 0" VerticalAlignment="Bottom" Opacity=".4"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
+            <Border Margin="0" BorderThickness="0 0 0 1" VerticalAlignment="Top" Opacity=".4"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
+            <Border Margin="0" BorderThickness="0 0 1 0" HorizontalAlignment="Left" Opacity=".4"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
+            <Border Margin="0" BorderThickness="1 0 0 0" HorizontalAlignment="Right" Opacity=".4"
+                    BorderBrush="{DynamicResource PrimaryHueMidBrush}" />
+            <Grid Margin="1">
+                <materialDesign:ColorZone MouseMove="TitleBar_MouseMove" Background="Transparent" Padding="5,2,5,2"
+                                          materialDesign:ShadowAssist.ShadowDepth="Depth0"
+                                          Mode="Standard">
+                    <DockPanel>
+                        <Button Click="ExitButton_Click" DockPanel.Dock="Right" Padding="10,0,10,0"
+                                Style="{StaticResource MaterialDesignFlatButton}" Loaded="Button_Loaded">
                             <materialDesign:PackIcon Kind="Close" Height="16" Width="24" />
                         </Button>
                         <!--<Button Click="btn_max_Click" DockPanel.Dock="Right" Padding="10,0,10,0" Style="{StaticResource MaterialDesignFlatButton}">
@@ -31,71 +38,116 @@
                     <Button Click="btn_min_Click" DockPanel.Dock="Right" Padding="10,0,10,0" Style="{StaticResource MaterialDesignFlatButton}">
                         <materialDesign:PackIcon Kind="WindowMinimize" Height="24" Width="24" />
                     </Button>-->
-                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16" Foreground="{DynamicResource PrimaryHueMidBrush}">添加用户</TextBlock>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="16"
+                                   Foreground="{DynamicResource PrimaryHueMidBrush}">
+                            添加用户
+                        </TextBlock>
                     </DockPanel>
                 </materialDesign:ColorZone>
                 <Grid Margin="8 38 8 8">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="0"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="40"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>  
+                        <ColumnDefinition Width="100" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" >
-                        <materialDesign:PackIcon Kind="Information" Margin="24 0 0 2" Width="20" Height="20" VerticalAlignment="Center" />
-                        <TextBlock HorizontalAlignment="Left" Padding="0" VerticalAlignment="Center" Margin="54,0,0,0"  FontSize="14" Grid.Row="1">根据区域添加分发信息</TextBlock>
-                        <Border Margin="-8,0,-8,1" BorderThickness="0 1 0 0" VerticalAlignment="Bottom" BorderBrush="{DynamicResource MaterialDesignDivider}" Grid.Row="1"/>
+                    <Grid Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0">
+                        <materialDesign:PackIcon Kind="Information" Margin="24 0 0 2" Width="20" Height="20"
+                                                 VerticalAlignment="Center" />
+                        <TextBlock HorizontalAlignment="Left" Padding="0" VerticalAlignment="Center" Margin="54,0,0,0"
+                                   FontSize="14" Grid.Row="1">
+                            根据区域添加分发信息
+                        </TextBlock>
+                        <Border Margin="-8,0,-8,1" BorderThickness="0 1 0 0" VerticalAlignment="Bottom"
+                                BorderBrush="{DynamicResource MaterialDesignDivider}" Grid.Row="1" />
                     </Grid>
-                     
 
-                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">姓名：</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">部门：</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">职务：</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">用户名：</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">密码：</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="6" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">确认密码：</TextBlock>
-                    <TextBlock Grid.Column="0" Grid.Row="7" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16" Style="{StaticResource MaterialDesignHeadlineTextBlock}">使用权限：</TextBlock>
-                    <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom"   HorizontalAlignment="Left" x:Name="Name"  Margin="4,0,0,5" Width="180" />
-                    <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom"   HorizontalAlignment="Left" x:Name="Department"  Margin="4,0,0,5" Width="180" />
-                    <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom"   HorizontalAlignment="Left" x:Name="Duty"  Margin="4,0,0,5" Width="180" />
-                    <TextBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom"   HorizontalAlignment="Left" x:Name="UserName"  Margin="4,0,0,5" Width="180" />
-                    <PasswordBox  Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom"   HorizontalAlignment="Left" x:Name="PassWord"  Margin="4,0,0,5" Width="180" LostKeyboardFocus="PassWord_LostKeyboardFocus" />
-                    <PasswordBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom"   HorizontalAlignment="Left" x:Name="SurePs"  Margin="4,0,0,5" Width="180" LostKeyboardFocus ="SurePS_LostKeyboardFocus"/>
-                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="4 0 0 8">
-                        <RadioButton Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 0" VerticalAlignment="Bottom" IsChecked="True">
+
+                    <TextBlock Grid.Column="0" Grid.Row="1" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16"
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                        姓名：
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="2" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16"
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                        部门：
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="3" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16"
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                        职务：
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="4" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16"
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                        用户名：
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="5" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16"
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                        密码：
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="6" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16"
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                        确认密码：
+                    </TextBlock>
+                    <TextBlock Grid.Column="0" Grid.Row="7" VerticalAlignment="Bottom" Margin="24 0 0 5" FontSize="16"
+                               Style="{StaticResource MaterialDesignHeadlineTextBlock}">
+                        使用权限：
+                    </TextBlock>
+                    <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                             x:Name="Name" Margin="4,0,0,5" Width="180" />
+                    <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                             x:Name="Department" Margin="4,0,0,5" Width="180" />
+                    <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                             x:Name="Duty" Margin="4,0,0,5" Width="180" />
+                    <TextBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                             x:Name="UserName" Margin="4,0,0,5" Width="180" />
+                    <PasswordBox Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                                 x:Name="PassWord" Margin="4,0,0,5" Width="180"
+                                 LostKeyboardFocus="PassWord_LostKeyboardFocus" />
+                    <PasswordBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                                 x:Name="SurePs" Margin="4,0,0,5" Width="180"
+                                 LostKeyboardFocus="SurePS_LostKeyboardFocus" />
+                    <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="7" VerticalAlignment="Bottom"
+                                HorizontalAlignment="Left" Margin="4 0 0 8">
+                        <RadioButton Style="{StaticResource MaterialDesignRadioButton}" Margin="0 0 8 0"
+                                     VerticalAlignment="Bottom" IsChecked="True">
                             仅浏览
                         </RadioButton>
-                        <RadioButton Style="{StaticResource MaterialDesignRadioButton}" Margin="20 0 8 0" VerticalAlignment="Bottom">
+                        <RadioButton Style="{StaticResource MaterialDesignRadioButton}" Margin="20 0 8 0"
+                                     VerticalAlignment="Bottom">
                             全操作
                         </RadioButton>
                     </StackPanel>
-                    <StackPanel Grid.ColumnSpan="2" Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Button   HorizontalAlignment="Center" Width="110" Height="26" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0 0 40 0" Click="Button_Click" >
+                    <StackPanel Grid.ColumnSpan="2" Grid.Row="8" Orientation="Horizontal" VerticalAlignment="Center"
+                                HorizontalAlignment="Center">
+                        <Button HorizontalAlignment="Center" Width="110" Height="26"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0 0 40 0"
+                                Click="Button_Click">
                             <StackPanel Margin="0 1 0 0" Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Check" />
-                                <TextBlock FontFamily="微软雅黑 Light" Margin="0 -2 0 0"  FontSize="13" >确定</TextBlock>
+                                <TextBlock FontFamily="微软雅黑 Light" Margin="0 -2 0 0" FontSize="13">确定</TextBlock>
                             </StackPanel>
                         </Button>
-                        <Button  Click="ExitButton_Click"  HorizontalAlignment="Center" Width="110" Height="26" Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0" >
+                        <Button Click="ExitButton_Click" HorizontalAlignment="Center" Width="110" Height="26"
+                                Style="{StaticResource MaterialDesignRaisedLightButton}" Margin="0">
                             <StackPanel Margin="0 1 0 0" Orientation="Horizontal">
                                 <materialDesign:PackIcon Kind="Close" />
-                                <TextBlock FontFamily="微软雅黑 Light" Margin="0 -2 0 0"  FontSize="13">取消</TextBlock>
+                                <TextBlock FontFamily="微软雅黑 Light" Margin="0 -2 0 0" FontSize="13">取消</TextBlock>
                             </StackPanel>
                         </Button>
-                        
+
                     </StackPanel>
 
                 </Grid>
-                <materialDesign:Snackbar Grid.Row="1" MessageQueue="{materialDesign:MessageQueue}" x:Name="MainSnackbar"/>
+                <materialDesign:Snackbar Grid.Row="1" MessageQueue="{materialDesign:MessageQueue}"
+                                         x:Name="MainSnackbar" />
             </Grid>
         </Grid>
     </materialDesign:Card>
