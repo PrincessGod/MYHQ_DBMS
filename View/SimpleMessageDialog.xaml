@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <materialDesign:PackIcon x:Name="Icon" HorizontalAlignment="Center" Width="40" Height="40"
-                                     Kind="AlertCircleOutline" />
+                                     Kind="AlertCircleOutline" IsTabStop="False" />
             <TextBlock x:Name="Message" HorizontalAlignment="Center"
                        Margin="0 6 0 0"
                        FontSize="18" Grid.Row="0" TextWrapping="Wrap" />
@@ -23,7 +23,7 @@
         <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
             <Button Grid.Row="1" x:Name="OkButton" HorizontalContentAlignment="Center"
                     IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
-                    HorizontalAlignment="Right" Height="auto"
+                    HorizontalAlignment="Right" Height="auto" IsTabStop="False"
                     Margin="16 16 16 0"
                     Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
                 <StackPanel>
@@ -35,7 +35,7 @@
                     <system:Boolean>True</system:Boolean>
                 </Button.CommandParameter>
             </Button>
-            <Button Grid.Row="1" x:Name="CancelButton"
+            <Button Grid.Row="1" x:Name="CancelButton" IsTabStop="False"
                     IsDefault="True" Style="{DynamicResource MaterialDesignFlatButton}"
                     HorizontalAlignment="Right"
                     Margin="16 16 16 0"
