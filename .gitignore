@@ -43,4 +43,5 @@ Temporary Items
 .apdisk
 
 #Directories 
-/bin
+/bin/*
+/obj/*
