@@ -72,12 +72,12 @@
                                      Width="160"
                                      Text="{Binding UserName,Mode=TwoWay}"
                                      Grid.Column="1" x:Name="NameTextBox"
-                                     materialDesign:HintAssist.Hint="UserName" />
+                                     materialDesign:HintAssist.Hint="Username" />
                             <PasswordBox Width="160" HorizontalAlignment="Left"
                                          Helper:PasswordBoxHelper.Attach="True"
                                          Helper:PasswordBoxHelper.Password="{Binding Path=PassWord,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                                          Margin="10 0 0 0" FontSize="16" x:Name="PasswordBox"
-                                         materialDesign:HintAssist.Hint="PassWord" />
+                                         materialDesign:HintAssist.Hint="Password" />
                         </StackPanel>
                         <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
                             <Button Command="{Binding RunLoginCommand}" x:Name="btnOK"
