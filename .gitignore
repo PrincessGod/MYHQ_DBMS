@@ -43,5 +43,8 @@ Temporary Items
 .apdisk
 
 #Directories 
-/bin/*
-/obj/*
+/bin
+/obj
+
+#Visual studio file
+*.suo
