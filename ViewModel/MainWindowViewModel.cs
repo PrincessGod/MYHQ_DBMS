@@ -64,6 +64,62 @@ namespace MYHQ_DBMS.ViewModel
             };
         }
 
+
+        /// <summary>
+        /// Do some task whith one input and output, it will use some time,
+        /// so get the whiting dialog when task is running, when finished will have a message dialog.
+        /// Of couse you can output one object via CommandParameter.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="task"></param>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        private async Task<bool> DoAsyncTask<T>(Func<T, dynamic> task, T obj)
+        {
+            var viewWiting = new WitingDialog
+            {
+                ButtonCancle = { Visibility = Visibility.Collapsed }
+            };
+
+            var viewMessage = new SimpleMessageDialog();
+
+            DialogHost.Show(viewWiting, "RootDialog");
+
+            dynamic r = null;
+            await Task.Run(() => { r = task(obj); }).ContinueWith(async (t, o) =>
+            {
+                viewMessage = new SimpleMessageDialog
+                {
+                    Message =
+                    {
+                        Text =
+                            r.State == 1
+                                ? "     操作成功！    \r\n" + r.Msg.Result
+                                : "操作失败!\r\n" + (string.IsNullOrEmpty(r.Msg.Result) ? "没有错误提示" : r.Msg.Result)
+                    },
+                    CancelButton = { Visibility = Visibility.Collapsed },
+                    Icon = { Kind = r.State == 1 ? PackIconKind.CheckCircleOutline : PackIconKind.AlertCircleOutline },
+                    OkButton = { CommandParameter = r.State == 1 }
+                };
+            }, null, TaskScheduler.FromCurrentSynchronizationContext());
+            if (r.State == 1)
+                await UpdateDatacontext();
+            viewWiting.ButtonCancle.Command.Execute(null);
+            await DialogHost.Show(viewMessage, "RootDialog");
+            return r.State == 1;
+        }
+
+        private async Task<bool> UpdateDatacontext()
+        {
+            //update UsersList
+
+            await Task.Run(() =>
+            {              
+                // UsersInfo = result.Msg.UserList; get new userlist
+            });
+
+            return true;
+        }
         #region Property
 
         private ObservableCollection<UserInfo> usersInfo;
